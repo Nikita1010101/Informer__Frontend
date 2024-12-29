@@ -8,20 +8,21 @@ import { Private } from "./Auth/Private/Private"
 import { Public } from "./Auth/public/Public"
 import { Admin } from "./screens/Admin/Admin"
 import { Info } from "./screens/Info/Info"
+import { Links } from "../constants/link.constant"
 
 export const App: FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Auth />}>
-          <Route path="login" element={<Login />} />
+          <Route path={Links.LOGIN} element={<Login />} />
         </Route>
         <Route element={<Private />}>
-          <Route path="admin" element={<Admin />} />
+          <Route path={Links.ADMIN} element={<Admin />} />
         </Route>
         <Route element={<Public />}>
           <Route index element={<Home />} />
-          <Route path="info" element={<Info />} />
+          <Route path={Links.INFO} element={<Info />} />
         </Route>
       </Routes>
     </BrowserRouter>

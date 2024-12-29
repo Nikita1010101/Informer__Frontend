@@ -8,10 +8,11 @@ import { AuthService } from "../../../services/token/Auth.service"
 import { ILinkOption } from "../../shared/Option/Option.interface"
 import { asyncWrapper } from "../../../helpers/async-wrapper.helper"
 import { localStorageHelper } from "../../../helpers/local-storage.helper"
+import { TOKEN } from "../../../constants/token.constant"
 
 export const Home: FC = () => {
   const [pages, setPages] = useState<ILinkOption[]>(() => {
-    const token = localStorageHelper.getItem("token")
+    const token = localStorageHelper.getItem(TOKEN)
 
     asyncWrapper(async () => {
       const data = await AuthService.getPrivate()
@@ -25,7 +26,7 @@ export const Home: FC = () => {
   })
 
   const logout = () => {
-    localStorageHelper.removeItem("token")
+    localStorageHelper.removeItem(TOKEN)
   }
 
   return (

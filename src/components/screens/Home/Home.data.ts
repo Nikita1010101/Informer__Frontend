@@ -1,7 +1,8 @@
 import { BadgeInfo, Dices, ShieldBan } from "lucide-react"
-import { IPage } from "../../shared/Option/Option.interface"
 
-export const publicPages: IPage[] = [
+import { ILinkOption } from "../../shared/Option/Option.interface"
+
+export const publicPages: ILinkOption[] = [
   {
     id: 1,
     Image: BadgeInfo,
@@ -16,7 +17,7 @@ export const publicPages: IPage[] = [
   },
 ]
 
-export const privatePages: IPage[] = [
+export const privatePages: ILinkOption[] = [
   ...publicPages,
   {
     id: 3,
