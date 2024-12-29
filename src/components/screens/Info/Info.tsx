@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react"
 
-import styles from "./Info.module.scss"
 import { TimeCoinOption } from "../../shared/Option/TimeCoinOption"
 import { MassagesOption } from "../../shared/Option/MassagesOption"
 import { asyncWrapper } from "../../../helpers/async-wrapper.helper"
@@ -19,7 +18,7 @@ export const Info: FC = () => {
   }, [])
 
   return (
-    <div className={styles.info}>
+    <div>
       <TimeCoinOption count={timeCoinsCount} />
       <MassagesOption count={massagesCount} />
     </div>

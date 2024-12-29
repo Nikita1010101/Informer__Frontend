@@ -1,7 +1,6 @@
 import { FC, useState } from "react"
 import { DoorOpen } from "lucide-react"
 
-import styles from "./Home.module.scss"
 import { privatePages, publicPages } from "./Home.data"
 import { LinkOption } from "../../shared/Option/LinkOption"
 import { AuthService } from "../../../services/token/Auth.service"
@@ -30,7 +29,7 @@ export const Home: FC = () => {
   }
 
   return (
-    <div className={styles.home}>
+    <div>
       {pages.map(({ id, ...page }) => (
         <LinkOption key={id} {...page} />
       ))}
