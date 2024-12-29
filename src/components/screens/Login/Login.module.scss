@@ -1,0 +1,42 @@
+.login {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin-right: 10px;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      width: 80%;
+      margin: 0 auto;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      width: 70%;
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 50px;
+      border: none;
+      outline: none;
+      background-color: #008080;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+}
