@@ -1,12 +1,11 @@
-import { FC, useState } from "react"
-import { useNavigate } from "react-router"
-import { compareSync } from "bcryptjs"
-import { DoorOpen } from "lucide-react"
+import { FC, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { compareSync } from 'bcryptjs'
+import { DoorOpen } from 'lucide-react'
 
-import styles from "./Login.module.scss"
-import { AuthService } from "../../../services/token/Auth.service"
-import { localStorageHelper } from "../../../helpers/local-storage.helper"
-import { TOKEN } from "../../../constants/token.constant"
+import styles from './Login.module.scss'
+import { AuthService } from '../../../services/token/Token.service'
+import { TOKEN } from '../../../constants/token.constant'
 
 export const Login: FC = () => {
   const navigate = useNavigate()
@@ -18,16 +17,15 @@ export const Login: FC = () => {
 
     if (password === '') {
       alert('Поле не должно быть пустым')
-    }
-    else if (compareSync(password, privateData.token)) {
-      localStorageHelper.setItem(TOKEN, privateData.token)
-      navigate("/")
+    } else if (compareSync(password, privateData.token)) {
+      localStorage.setItem(TOKEN, privateData.token)
+      navigate('/')
     } else if (compareSync(password, publicData.token)) {
-      localStorageHelper.setItem(TOKEN, publicData.token)
-      navigate("/")
+      localStorage.setItem(TOKEN, publicData.token)
+      navigate('/')
     } else {
-      setPassword("")
-      alert("Неверный пароль")
+      setPassword('')
+      alert('Неверный пароль')
     }
   }
 
@@ -39,7 +37,7 @@ export const Login: FC = () => {
       </div>
       <div className={styles.form}>
         <input
-          type="password"
+          type='password'
           value={password}
           onChange={event => setPassword(event.target.value)}
         />

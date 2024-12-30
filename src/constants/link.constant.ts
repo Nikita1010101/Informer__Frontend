@@ -1,5 +1,6 @@
 export const Links = {
-  ADMIN: "admin",
-  INFO: "info",
-  LOGIN: "login",
+  HOME: '/',
+  ADMIN: '/admin',
+  INFO: '/info',
+  LOGIN: '/login',
 }

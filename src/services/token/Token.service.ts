@@ -1,15 +1,15 @@
-import { $axios } from "../../api/axios"
-import { IResponseWrapper } from "../../interfaces/response.interface"
-import { IAuth } from "./Auth.interface"
+import { $axios } from '../../api/axios'
+import { IResponseWrapper } from '../../interfaces/response.interface'
+import { IToken } from './Token.interface'
 
 export const AuthService = {
   async getPrivate() {
-    const { data } = await $axios.get<IResponseWrapper<IAuth>>("/1")
+    const { data } = await $axios.get<IResponseWrapper<IToken>>('/1')
     return data.data
   },
 
   async getPublic() {
-    const { data } = await $axios.get<IResponseWrapper<IAuth>>("/2")
+    const { data } = await $axios.get<IResponseWrapper<IToken>>('/2')
     return data.data
   },
 

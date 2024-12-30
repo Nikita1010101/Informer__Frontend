@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react"
+import { LucideIcon } from 'lucide-react'
 
 export interface ILinkOption {
   id: number
@@ -12,5 +12,5 @@ export interface IInfo {
   count: number
 }
 
-export type ITimeCoinInfo = IInfo 
+export type ITimeCoinInfo = IInfo
 export type IMassagesInfo = IInfo

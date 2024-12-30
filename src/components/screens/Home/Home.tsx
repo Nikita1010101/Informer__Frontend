@@ -1,17 +1,16 @@
-import { FC, useState } from "react"
-import { DoorOpen } from "lucide-react"
+import { FC, useState } from 'react'
+import { DoorOpen } from 'lucide-react'
 
-import { privatePages, publicPages } from "./Home.data"
-import { LinkOption } from "../../shared/Option/LinkOption"
-import { AuthService } from "../../../services/token/Auth.service"
-import { ILinkOption } from "../../shared/Option/Option.interface"
-import { asyncWrapper } from "../../../helpers/async-wrapper.helper"
-import { localStorageHelper } from "../../../helpers/local-storage.helper"
-import { TOKEN } from "../../../constants/token.constant"
+import { privatePages, publicPages } from './Home.data'
+import { LinkOption } from '../../shared/Option/LinkOption'
+import { AuthService } from '../../../services/token/Token.service'
+import { ILinkOption } from '../../shared/Option/Option.interface'
+import { asyncWrapper } from '../../../helpers/async-wrapper.helper'
+import { TOKEN } from '../../../constants/token.constant'
 
 export const Home: FC = () => {
   const [pages, setPages] = useState<ILinkOption[]>(() => {
-    const token = localStorageHelper.getItem(TOKEN)
+    const token = localStorage.getItem(TOKEN)
 
     asyncWrapper(async () => {
       const data = await AuthService.getPrivate()
@@ -25,7 +24,7 @@ export const Home: FC = () => {
   })
 
   const logout = () => {
-    localStorageHelper.removeItem(TOKEN)
+    localStorage.removeItem(TOKEN)
   }
 
   return (
@@ -33,7 +32,7 @@ export const Home: FC = () => {
       {pages.map(({ id, ...page }) => (
         <LinkOption key={id} {...page} />
       ))}
-      <LinkOption onClickFn={logout} key={999} Image={DoorOpen} link="/login" title="Выйти" />
+      <LinkOption onClickFn={logout} key={999} Image={DoorOpen} link='/login' title='Выйти' />
     </div>
   )
 }

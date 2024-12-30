@@ -1,9 +1,9 @@
-import { FC } from "react"
-import { ArrowBigRight, ClockAlert } from "lucide-react"
-import cn from "classnames"
+import { FC } from 'react'
+import { ArrowBigRight, ClockAlert } from 'lucide-react'
+import cn from 'classnames'
 
-import styles from "./Options.module.scss"
-import { ITimeCoinInfo } from "./Option.interface"
+import styles from './Options.module.scss'
+import { ITimeCoinInfo } from './Option.interface'
 
 export const TimeCoinOption: FC<ITimeCoinInfo> = ({ count }) => {
   return (
@@ -16,7 +16,7 @@ export const TimeCoinOption: FC<ITimeCoinInfo> = ({ count }) => {
     >
       <ClockAlert />
       <span>Минуты</span>
-      <ArrowBigRight fill="#fff" />
+      <ArrowBigRight fill='#fff' />
       <span className={styles.count}>{count}</span>
     </div>
   )

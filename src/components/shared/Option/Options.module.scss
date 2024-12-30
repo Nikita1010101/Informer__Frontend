@@ -21,7 +21,7 @@
     }
   }
 
-  &[href="/info"] {
+  &[href='/info'] {
     box-shadow: 0 0 10px green;
 
     &:active {
@@ -29,7 +29,7 @@
     }
   }
 
-  &[href="/wheel"] {
+  &[href='/wheel'] {
     box-shadow: 0 0 10px orange;
 
     &:active {
@@ -37,8 +37,8 @@
     }
   }
 
-  &[href="/login"],
-  &[href="/admin"] {
+  &[href='/login'],
+  &[href='/admin'] {
     box-shadow: 0 0 10px red;
 
     &:active {

@@ -1,25 +1,17 @@
-import { FC, useEffect } from "react"
-import { Outlet, useNavigate } from "react-router"
+import { FC, useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router'
 
-import { localStorageHelper } from "../../helpers/local-storage.helper"
-import { AuthService } from "../../services/token/Auth.service"
-import { asyncWrapper } from "../../helpers/async-wrapper.helper"
-import { TOKEN } from "../../constants/token.constant"
+import { IAuth } from './Auth.interface'
+import { Loading } from '../shared/Loading/Loading'
 
-export const Auth: FC = () => {
+export const Auth: FC<IAuth> = ({ conditional, isLoading, link }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorageHelper.getItem(TOKEN)
+    if (conditional) {
+      navigate(link)
+    }
+  }, [conditional, isLoading, link, navigate])
 
-    asyncWrapper(async () => {
-      const { privateData, publicData } = await AuthService.getAll()
-
-      if (privateData.token === token || publicData.token === token) {
-        navigate("/")
-      }
-    })
-  }, [navigate])
-
-  return <Outlet />
+  return isLoading ? <Loading /> : <Outlet />
 }

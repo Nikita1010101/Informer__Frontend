@@ -1,6 +1,5 @@
-import { FC } from "react";
-
+import { FC } from 'react'
 
 export const Admin: FC = () => {
-  return <div>Admin</div>;
-};
+  return <div>Admin</div>
+}
