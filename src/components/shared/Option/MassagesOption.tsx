@@ -1,9 +1,9 @@
-import { FC } from "react"
-import { Hand } from "lucide-react"
-import cn from "classnames"
+import { FC } from 'react'
+import { ArrowBigRight, Hand } from 'lucide-react'
+import cn from 'classnames'
 
-import styles from "./Options.module.scss"
-import { IMassagesInfo } from "./Option.interface"
+import styles from './Options.module.scss'
+import { IMassagesInfo } from './Option.interface'
 
 export const MassagesOption: FC<IMassagesInfo> = ({ count }) => {
   return (
@@ -15,7 +15,9 @@ export const MassagesOption: FC<IMassagesInfo> = ({ count }) => {
       })}
     >
       <Hand />
-      <span>Массажи - {count}</span>
+      <span>Массажи</span>
+      <ArrowBigRight fill='#fff' />
+      <span className={styles.count}>{count}</span>
     </div>
   )
 }

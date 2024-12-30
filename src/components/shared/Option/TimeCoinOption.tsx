@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { ClockAlert } from "lucide-react"
+import { ArrowBigRight, ClockAlert } from "lucide-react"
 import cn from "classnames"
 
 import styles from "./Options.module.scss"
@@ -15,7 +15,9 @@ export const TimeCoinOption: FC<ITimeCoinInfo> = ({ count }) => {
       })}
     >
       <ClockAlert />
-      <span>Минуты - {count}</span>
+      <span>Минуты</span>
+      <ArrowBigRight fill="#fff" />
+      <span className={styles.count}>{count}</span>
     </div>
   )
 }
