@@ -6,11 +6,10 @@ import { LinkOption } from '../../shared/Option/LinkOption'
 import { AuthService } from '../../../services/token/Token.service'
 import { ILinkOption } from '../../shared/Option/Option.interface'
 import { asyncWrapper } from '../../../helpers/async-wrapper.helper'
-import { TOKEN } from '../../../constants/token.constant'
 
 export const Home: FC = () => {
   const [pages, setPages] = useState<ILinkOption[]>(() => {
-    const token = localStorage.getItem(TOKEN)
+    const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY)
 
     asyncWrapper(async () => {
       const data = await AuthService.getPrivate()
@@ -24,7 +23,7 @@ export const Home: FC = () => {
   })
 
   const logout = () => {
-    localStorage.removeItem(TOKEN)
+    localStorage.removeItem(import.meta.env.VITE_TOKEN_KEY)
   }
 
   return (

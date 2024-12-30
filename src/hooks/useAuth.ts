@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 
-import { TOKEN } from '../constants/token.constant'
 import { ITokens } from '../interfaces/token.interface'
 import { asyncWrapper } from '../helpers/async-wrapper.helper'
 import { AuthService } from '../services/token/Token.service'
 
 export const useAuth = () => {
   const location = useLocation()
-  const [token, setToken] = useState(localStorage.getItem(TOKEN))
+  const [token, setToken] = useState(localStorage.getItem(import.meta.env.VITE_TOKEN_KEY))
   const [isLoading, setIsLoading] = useState(true)
   const [tokens, setTokens] = useState<ITokens>(() => {
     asyncWrapper(async () => {
@@ -33,7 +32,7 @@ export const useAuth = () => {
   }, [token, tokens])
 
   useEffect(() => {
-    setToken(localStorage.getItem(TOKEN))
+    setToken(localStorage.getItem(import.meta.env.VITE_TOKEN_KEY))
   }, [location])
 
   return { isLoading, conditionals }

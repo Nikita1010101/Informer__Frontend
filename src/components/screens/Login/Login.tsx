@@ -5,7 +5,6 @@ import { DoorOpen } from 'lucide-react'
 
 import styles from './Login.module.scss'
 import { AuthService } from '../../../services/token/Token.service'
-import { TOKEN } from '../../../constants/token.constant'
 
 export const Login: FC = () => {
   const navigate = useNavigate()
@@ -18,10 +17,10 @@ export const Login: FC = () => {
     if (password === '') {
       alert('Поле не должно быть пустым')
     } else if (compareSync(password, privateData.token)) {
-      localStorage.setItem(TOKEN, privateData.token)
+      localStorage.setItem(import.meta.env.VITE_TOKEN_KEY, privateData.token)
       navigate('/')
     } else if (compareSync(password, publicData.token)) {
-      localStorage.setItem(TOKEN, publicData.token)
+      localStorage.setItem(import.meta.env.VITE_TOKEN_KEY, publicData.token)
       navigate('/')
     } else {
       setPassword('')
