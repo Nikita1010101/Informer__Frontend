@@ -7,7 +7,9 @@ import { AuthService } from '../services/token/Token.service'
 
 export const useAuth = () => {
   const location = useLocation()
-  const [token, setToken] = useState(localStorage.getItem(import.meta.env.VITE_TOKEN_KEY))
+  const [token, setToken] = useState(
+    localStorage.getItem(import.meta.env.VITE_TOKEN_KEY)
+  )
   const [isLoading, setIsLoading] = useState(true)
   const [tokens, setTokens] = useState<ITokens>(() => {
     asyncWrapper(async () => {
@@ -18,7 +20,11 @@ export const useAuth = () => {
 
     return {} as ITokens
   })
-  const [conditionals, setConditionals] = useState({ login: false, private: false, public: false })
+  const [conditionals, setConditionals] = useState({
+    login: false,
+    private: false,
+    public: false,
+  })
 
   useEffect(() => {
     if (Object.keys(tokens).length !== 0) {

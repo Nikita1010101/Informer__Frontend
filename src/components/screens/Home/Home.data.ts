@@ -1,28 +1,54 @@
-import { BadgeInfo, Dices, ShieldBan } from 'lucide-react'
+import {
+  ChartGantt,
+  Info,
+  ListTodo,
+  MessageSquareText,
+  ShieldBan,
+  ShoppingBag,
+} from 'lucide-react'
 
-import { ILinkOption } from '../../shared/Option/Option.interface'
+import { Links } from '../../../constants/link.constant'
+import { ILink } from '../../shared/Wrappers/Link-wrapper/LinkWrapper.interface'
 
-export const publicPages: ILinkOption[] = [
+export const publicPages: ILink[] = [
   {
     id: 1,
-    Image: BadgeInfo,
-    link: '/info',
+    Image: ChartGantt,
+    link: Links.INFO,
     title: 'Информация',
   },
   {
     id: 2,
-    Image: Dices,
-    link: '/wheel',
-    title: 'Колесо',
+    Image: ListTodo,
+    link: Links.TASKS,
+    title: 'Задачи',
+  },
+  {
+    id: 3,
+    Image: ShoppingBag,
+    link: Links.SHOP,
+    title: 'Магазин',
+  },
+  {
+    id: 4,
+    Image: MessageSquareText,
+    link: Links.COMMENTS,
+    title: 'Комментарии',
+  },
+  {
+    id: 5,
+    Image: Info,
+    link: Links.RULES,
+    title: 'Правила',
   },
 ]
 
-export const privatePages: ILinkOption[] = [
+export const privatePages: ILink[] = [
   ...publicPages,
   {
-    id: 3,
+    id: 6,
     Image: ShieldBan,
-    link: '/admin',
+    link: Links.ADMIN,
     title: 'Админ',
   },
 ]

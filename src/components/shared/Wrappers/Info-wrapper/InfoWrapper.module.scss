@@ -1,0 +1,22 @@
+@import '../Wrapper.scss';
+
+.wrapper {
+  @include base-layout(80%);
+  @include h3-style;
+
+  &.blue {
+    @include box-shadow(royalblue);
+  }
+
+  &.green {
+    @include box-shadow(green);
+  }
+
+  &.yellow {
+    @include box-shadow(orange);
+  }
+
+  &.red {
+    @include box-shadow(red);
+  }
+}

@@ -2,13 +2,14 @@ import { FC, useState } from 'react'
 import { DoorOpen } from 'lucide-react'
 
 import { privatePages, publicPages } from './Home.data'
-import { LinkOption } from '../../shared/Option/LinkOption'
 import { AuthService } from '../../../services/token/Token.service'
-import { ILinkOption } from '../../shared/Option/Option.interface'
 import { asyncWrapper } from '../../../helpers/async-wrapper.helper'
+import { Links } from '../../../constants/link.constant'
+import { LinkWrapper } from '../../shared/Wrappers/Link-wrapper/LinkWrapper'
+import { ILink } from '../../shared/Wrappers/Link-wrapper/LinkWrapper.interface'
 
 export const Home: FC = () => {
-  const [pages, setPages] = useState<ILinkOption[]>(() => {
+  const [pages, setPages] = useState<ILink[]>(() => {
     const token = localStorage.getItem(import.meta.env.VITE_TOKEN_KEY)
 
     asyncWrapper(async () => {
@@ -28,10 +29,16 @@ export const Home: FC = () => {
 
   return (
     <div>
-      {pages.map(({ id, ...page }) => (
-        <LinkOption key={id} {...page} />
+      {pages.map(({ id, Image, link, title }) => (
+        <LinkWrapper key={id} link={link}>
+          <Image />
+          <h3>{title}</h3>
+        </LinkWrapper>
       ))}
-      <LinkOption onClickFn={logout} key={999} Image={DoorOpen} link='/login' title='Выйти' />
+      <LinkWrapper key={999} link={Links.LOGIN} onClickFn={logout}>
+        <DoorOpen />
+        <h3>Выйти</h3>
+      </LinkWrapper>
     </div>
   )
 }

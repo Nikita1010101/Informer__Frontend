@@ -1,0 +1,16 @@
+@import '../Wrapper.scss';
+
+.wrapper {
+  @include base-layout(85%);
+  @include h3-style(30px);
+  @include box-shadow(mediumslateblue);
+
+  align-items: start;
+  flex-direction: column;
+  padding: 10px 10px;
+
+
+  hr {
+    width: 90%;
+  }
+}

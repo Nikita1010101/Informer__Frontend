@@ -1,6 +1,10 @@
 export const Links = {
-  HOME: '/',
   ADMIN: '/admin',
+  COMMENTS: '/comments',
+  HOME: '/',
   INFO: '/info',
   LOGIN: '/login',
+  RULES: '/rules',
+  SHOP: '/shop',
+  TASKS: '/tasks'
 }

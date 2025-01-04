@@ -1,0 +1,31 @@
+@mixin base-layout($width) {
+  width: $width;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+@mixin box-shadow($color) {
+  box-shadow: 0 0 10px $color;
+
+  &:active {
+    box-shadow: 0 0 80px $color;
+  }
+}
+
+@mixin h3-style($ml: 10px) {
+  h3 {
+    margin-left: $ml;
+    margin-right: 4px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
