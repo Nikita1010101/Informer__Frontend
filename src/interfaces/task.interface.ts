@@ -1,7 +1,8 @@
 export interface IStage {
   title: string
   reward: number
-  isCompleted: boolean
+  completedSubStagesCount: number
+  subStagesCount: number
 }
 
 export interface ITask {

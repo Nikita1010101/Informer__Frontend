@@ -11,8 +11,7 @@ export const Login: FC = () => {
   const [password, setPassword] = useState('')
 
   const login = async () => {
-    const privateData = await AuthService.getPrivate()
-    const publicData = await AuthService.getPublic()
+    const { privateData, publicData } = await AuthService.getAll()
 
     if (password === '') {
       alert('Поле не должно быть пустым')

@@ -4,13 +4,13 @@ li {
   div {
     display: flex;
     align-items: center;
-    
+
     span {
       margin-right: 5px;
     }
+  }
 
-    &.isCompleted {
-      text-decoration: line-through;
-    }
+  &.isCompleted {
+    text-decoration: line-through;
   }
 }

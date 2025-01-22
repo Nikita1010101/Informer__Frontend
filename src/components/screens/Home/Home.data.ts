@@ -8,9 +8,9 @@ import {
 } from 'lucide-react'
 
 import { Links } from '../../../constants/link.constant'
-import { ILink } from '../../shared/Wrappers/Link-wrapper/LinkWrapper.interface'
+import { IPage } from './Home.interface'
 
-export const publicPages: ILink[] = [
+export const publicPages: IPage[] = [
   {
     id: 1,
     Image: ChartGantt,
@@ -43,7 +43,7 @@ export const publicPages: ILink[] = [
   },
 ]
 
-export const privatePages: ILink[] = [
+export const privatePages: IPage[] = [
   ...publicPages,
   {
     id: 6,

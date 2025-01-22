@@ -5,14 +5,31 @@ import cn from 'classnames'
 import styles from './Stage.module.scss'
 import { IStage } from '../../../../interfaces/task.interface'
 
-export const Stage: FC<IStage> = ({ isCompleted, reward, title }) => {
+export const Stage: FC<IStage> = ({
+  completedSubStagesCount,
+  reward,
+  subStagesCount,
+  title,
+}) => {
   return (
-    <li className={cn(styles.stage, { [styles.isCompleted]: isCompleted })}>
+    <li
+      className={cn(styles.stage, {
+        [styles.isCompleted]: completedSubStagesCount === subStagesCount,
+      })}
+    >
       <div>
         <span>
           {`${title} --- `} <strong>{reward}</strong> Т
         </span>
-        {isCompleted && <CircleCheckBig size={18} stroke='#0f0' />}
+        {completedSubStagesCount === subStagesCount ? (
+          <CircleCheckBig size={18} stroke='#0f0' />
+        ) : (
+          subStagesCount !== 1 && (
+            <span>
+              ({completedSubStagesCount} из {subStagesCount})
+            </span>
+          )
+        )}
       </div>
     </li>
   )

@@ -1,4 +1,4 @@
-export interface IInfo {
+export interface ICoins {
   timeCoinsCount: number
-  massagesCount: number
+  tokenCoinsCount: number
 }
